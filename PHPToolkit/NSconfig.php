@@ -10,6 +10,7 @@ class  NSconfig {
     public $account = "MYACCT1";
     public $debuginfo = null;
     public $logging = false;
+	public $connectionTimeout = 5;
 }
 
 ?>

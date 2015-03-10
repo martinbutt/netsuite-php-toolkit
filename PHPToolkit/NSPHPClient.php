@@ -227,7 +227,11 @@ class NSPHPClient {
 
         $options['classmap'] = $this->classmap;
         $options['trace'] = 1;
-        $options['connection_timeout'] = 5;
+
+        if (!isset($options['connection_timeout'])) {
+            $options['connection_timeout'] = (isset($nsconfig->connectionTimeout)) ? $nsconfig->connectionTimeout : 5;
+        }
+
         $options['cache_wsdl'] = WSDL_CACHE_BOTH;
         $httpheaders = "PHP-SOAP/" . phpversion() . " + NetSuite PHP Toolkit " . $this->nsversion;
 
